@@ -47,22 +47,40 @@ Nützliche Commands:
 - Neueste Applikations-Logs: `cf logs demoservice.dev --recent`
 
 
-### scaling up and out
+### Scaling up and out
 
 https://docs.cloudfoundry.org/devguide/deploy-apps/cf-scale.html
 
-## work with DB on CF
+    cf scale demoservice.dev -i 5
+    cf scale demoservice.dev -m 1G
+
+### Spring-Bean-Profile
+
+Um via Spring-Bean-Profilen applikatorische Konfiguration zu aktivieren, wenn die Applikation in CF läuft,
+lässt sich im `manifest.yml` eine entsprechende Umgebungsvariable setzen:
+
+      applications:
+      - name: demoservice.dev
+        memory: 768M
+      env:
+        SPRING_PROFILES_ACTIVE: production
+
+Spring-Dokumentation zu Bean Profilen: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-set-active-spring-profiles
+
+### Beispiel mit Datenbank
 
 https://github.com/cloudfoundry-samples/pong_matcher_spring
 
-## logging
-https://docs.cloudfoundry.org/devguide/deploy-apps/streaming-logs.html
+### Logging
 
-## CORS
+Loggt die Applikation nach STDOUT, sind die Logs in CF sichtbar: https://docs.cloudfoundry.org/devguide/deploy-apps/streaming-logs.html
 
-Was tun, damit JS den Service aufrufen kann, obwohl die Domain verschieden ist?
+### CORS
 
-- a) CORS header
-- b) Gleiche Domain nehmen, und apps via Context Root unterscheiden.
-- c) im CF eine Domain für einen Proxy einrichten?
+Was tun, damit die SPA den Service aufrufen kann, obwohl die (Sub-)Domain verschieden ist?
+
+Beispielsweise können applikatorisch oder konfigurativ CORS-Header gesetzt werden,
+sodass der Service in einem Cross-Origin-Scenario aufgerufen werden kann.
+
+https://stackoverflow.com/questions/38480530/static-buildpack-throws-cors-405-method-not-allowed-for-json-file
 
