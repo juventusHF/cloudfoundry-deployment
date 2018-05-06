@@ -1,0 +1,35 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+### from CF react starter
+.env.json
+frontend/config/local.json
+frontend/dist/*
+frontend/node_modules/
+frontend/public/*
+frontend/logs/*
+frontend/tmp/*
+.DS_Store
+npm-debug.log

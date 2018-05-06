@@ -1,0 +1,5 @@
+---
+applications:
+  - name: demoweb.dev
+    path: public
+    memory: 16MB

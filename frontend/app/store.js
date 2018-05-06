@@ -1,0 +1,4 @@
+module.exports = {
+  todoItems: [],
+  users: []
+};
